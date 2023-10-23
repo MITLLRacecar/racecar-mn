@@ -42,8 +42,8 @@ print("Original Windows Path:", abs_path)
 if op_sys.lower() == "windows":
     linux_path = abs_path.replace("\\", "/") # Replace backslash with forward slash
     path_parts = linux_path.split(" ") # Deal with the spaces (if any)
+    linux_path = '/mnt/' + path_parts[0][0].lower() + '/' + path_parts[0][3:] # Add /mnt/, and drive letter
     if len(path_parts) > 1:
-        linux_path = '/mnt/' + path_parts[0][0].lower() + '/' + path_parts[0][3:] # Add /mnt/, and drive letter
         while len(path_parts) > 1:
             linux_path += "\ " + path_parts[1]
             path_parts.pop(1)
